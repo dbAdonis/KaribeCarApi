@@ -1,19 +1,154 @@
-GET http://localhost:8080/categories
+### Obtener todos los tipos de vehículo
+GET http://localhost:8080/tiposVehiculo
+
 ###
-GET http://localhost:8080/categories/1
+### Obtener un tipo de vehículo por ID
+GET http://localhost:8080/tiposVehiculo/1
+
 ###
-POST http://localhost:8080/categories
+### Crear tipo de vehículo 1 - Sedán
+POST http://localhost:8080/tiposVehiculo
 Content-Type: application/json
 
 {
-"description": "Postres"
+  "nombre": "Sedán",
+  "descripcion": "Vehículo compacto para pasajeros"
 }
+
 ###
-PUT http://localhost:8080/categories/2
+### Crear tipo de vehículo 2 - SUV
+POST http://localhost:8080/tiposVehiculo
 Content-Type: application/json
 
 {
-"description": "Platos fuertes"
+  "nombre": "SUV",
+  "descripcion": "Vehículo deportivo utilitario"
 }
+
 ###
-DELETE http://localhost:8080/categories/3
+### Crear tipo de vehículo 3 - Hatchback
+POST http://localhost:8080/tiposVehiculo
+Content-Type: application/json
+
+{
+  "nombre": "Hatchback",
+  "descripcion": "Vehículo pequeño con puerta trasera"
+}
+
+###
+### Actualizar tipo de vehículo
+PUT http://localhost:8080/tiposVehiculo/2
+Content-Type: application/json
+
+{
+  "nombre": "SUV",
+  "descripcion": "Vehículo deportivo utilitario de tamaño medio"
+}
+
+###
+### Eliminar tipo de vehículo por ID
+DELETE http://localhost:8080/tiposVehiculo/3
+
+
+### Obtener todos los vehículos
+GET http://localhost:8080/vehiculos
+
+###
+### Obtener un vehículo por ID
+GET http://localhost:8080/vehiculos/3
+
+###
+### Crear vehículo 1
+POST http://localhost:8080/vehiculos
+Content-Type: application/json
+
+{
+  "idTipoVehiculo": {
+    "idTipoVehiculo": 1
+  },
+  "marca": "Toyota",
+  "modelo": "Corolla",
+  "año": "2022",
+  "placa": "ABC124",
+  "combustible": "Gasolina",
+  "pasajeros": "5",
+  "aireAcondicionado": "Sí",
+  "transmision": "Automática",
+  "cilindraje": "1800cc",
+  "potencia": "140HP",
+  "kilometraje": 20000,
+  "traccion": "Delantera"
+}
+
+###
+### Crear vehículo 2
+POST http://localhost:8080/vehiculos
+Content-Type: application/json
+
+{
+  "idTipoVehiculo": {
+    "idTipoVehiculo": 2
+  },
+  "marca": "Hyundai",
+  "modelo": "Tucson",
+  "año": "2021",
+  "placa": "XYZ789",
+  "combustible": "Diesel",
+  "pasajeros": "5",
+  "aireAcondicionado": "Sí",
+  "transmision": "Manual",
+  "cilindraje": "2000cc",
+  "potencia": "150HP",
+  "kilometraje": 35000,
+  "traccion": "4x4"
+}
+
+###
+### Crear vehículo 3
+POST http://localhost:8080/vehiculos
+Content-Type: application/json
+
+{
+  "idTipoVehiculo": {
+    "idTipoVehiculo": 3
+  },
+  "marca": "Kia",
+  "modelo": "Rio",
+  "año": "2020",
+  "placa": "LMN456",
+  "combustible": "Gasolina",
+  "pasajeros": "5",
+  "aireAcondicionado": "No",
+  "transmision": "Automática",
+  "cilindraje": "1600cc",
+  "potencia": "120HP",
+  "kilometraje": 45000,
+  "traccion": "Delantera"
+}
+
+###
+### Actualizar un vehículo existente
+PUT http://localhost:8080/vehiculos/5
+Content-Type: application/json
+
+{
+  "idTipoVehiculo": {
+    "idTipoVehiculo": 1
+  },
+  "marca": "Honda",
+  "modelo": "Civic",
+  "año": "2023",
+  "placa": "XYZ781",
+  "combustible": "Gasolina",
+  "pasajeros": "5",
+  "aireAcondicionado": "Sí",
+  "transmision": "Manual",
+  "cilindraje": "1600cc",
+  "potencia": "130HP",
+  "kilometraje": 15000,
+  "traccion": "Delantera"
+}
+
+###
+### Eliminar un vehículo por ID
+DELETE http://localhost:8080/vehiculos/5
