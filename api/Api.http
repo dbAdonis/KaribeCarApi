@@ -152,3 +152,153 @@ Content-Type: application/json
 ###
 ### Eliminar un vehículo por ID
 DELETE http://localhost:8080/vehiculos/5
+
+###
+### Obtener todas las oficinas
+GET http://localhost:8080/oficinas
+
+###
+### Obtener una oficina por ID
+GET http://localhost:8080/oficinas/1
+
+###
+### Crear nueva oficina
+POST http://localhost:8080/oficinas
+Content-Type: application/json
+
+{
+  "nombre": "Oficina Central",
+  "provincia": "San José",
+  "canton": "Central",
+  "direccion": "Avenida Central, Edificio Karibe",
+  "telefono": "2222-3333"
+}
+
+###
+### Crear otra oficina
+POST http://localhost:8080/oficinas
+Content-Type: application/json
+
+{
+  "nombre": "Sucursal Cartago",
+  "provincia": "Cartago",
+  "canton": "Oriental",
+  "direccion": "Calle 4, frente al parque",
+  "telefono": "2555-1234"
+}
+
+###
+### Actualizar una oficina
+PUT http://localhost:8080/oficinas/1
+Content-Type: application/json
+
+{
+  "nombre": "Oficina Principal",
+  "provincia": "San José",
+  "canton": "Central",
+  "direccion": "Av. Segunda, edificio azul",
+  "telefono": "8888-9999"
+}
+
+###
+### Eliminar una oficina
+DELETE http://localhost:8080/oficinas/1
+
+
+### Obtener todos los clientes
+GET http://localhost:8080/clientes
+
+###
+### Obtener un cliente por ID
+GET http://localhost:8080/clientes/1
+
+###
+### Crear cliente 1
+POST http://localhost:8080/clientes
+Content-Type: application/json
+
+{
+  "nombre": "Juan",
+  "apellido": "Pérez",
+  "direccion": "San José, Costa Rica",
+  "celular": "88889999",
+  "correo": "juan.perez@email.com"
+}
+
+###
+### Crear cliente 2
+POST http://localhost:8080/clientes
+Content-Type: application/json
+
+{
+  "nombre": "María",
+  "apellido": "Gómez",
+  "direccion": "Alajuela, Costa Rica",
+  "celular": "87776666",
+  "correo": "maria.gomez@email.com"
+}
+
+###
+### Actualizar cliente con ID 1
+PUT http://localhost:8080/clientes/1
+Content-Type: application/json
+
+{
+  "nombre": "Juan Carlos",
+  "apellido": "Pérez Mora",
+  "direccion": "Heredia, Costa Rica",
+  "celular": "88889999",
+  "correo": "juan.c.perez@email.com"
+}
+
+###
+### Eliminar cliente por ID
+DELETE http://localhost:8080/clientes/1
+
+
+### Obtener todas las tarifas
+GET http://localhost:8080/tarifas
+
+###
+### Obtener una tarifa por ID
+GET http://localhost:8080/tarifas/1
+
+###
+### Crear tarifa 1
+POST http://localhost:8080/tarifas
+Content-Type: application/json
+
+{
+  "precio": 25000,
+  "idTipoVehiculo": {
+    "idTipoVehiculo": 1
+  }
+}
+
+###
+### Crear tarifa 2
+POST http://localhost:8080/tarifas
+Content-Type: application/json
+
+{
+  "precio": 32000,
+  "idTipoVehiculo": {
+    "idTipoVehiculo": 2
+  }
+}
+
+###
+### Actualizar tarifa con ID 1
+PUT http://localhost:8080/tarifas/1
+Content-Type: application/json
+
+{
+  "precio": 27000,
+  "idTipoVehiculo": {
+    "idTipoVehiculo": 1
+  }
+}
+
+###
+### Eliminar una tarifa por ID
+DELETE http://localhost:8080/tarifas/1
