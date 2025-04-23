@@ -39,6 +39,7 @@ public class VehiculoService {
             Vehiculo updatedVehiculo = existingVehiculo.get();
             
             updatedVehiculo.setIdTipoVehiculo(vehiculo.getIdTipoVehiculo());
+            updatedVehiculo.setImagen(vehiculo.getImagen());
             updatedVehiculo.setMarca(vehiculo.getMarca());
             updatedVehiculo.setMarca(vehiculo.getMarca());
             updatedVehiculo.setModelo(vehiculo.getModelo());
