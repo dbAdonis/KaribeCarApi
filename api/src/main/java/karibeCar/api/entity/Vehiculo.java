@@ -20,6 +20,9 @@ public class Vehiculo {
     private TipoVehiculo idTipoVehiculo;
 
     @Column(nullable = false)
+    private String imagen;
+
+    @Column(nullable = false)
     private String marca;
 
     @Column(nullable = false)
