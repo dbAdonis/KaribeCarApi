@@ -16,9 +16,6 @@ public class Oficina {
     private int idOficina;
 
     @Column(nullable = false)
-    private String nombre;
-
-    @Column(nullable = false)
     private String provincia;
 
     @Column(nullable = false)
@@ -29,5 +26,14 @@ public class Oficina {
 
     @Column(nullable = false, unique = true)
     private String telefono;
+
+    @Column(nullable = false)
+    private String horario;
+
+    @Column(nullable = false)
+    private String descripcion;
+
+    @Column(nullable = false)
+    private String google_maps;
 
 }
