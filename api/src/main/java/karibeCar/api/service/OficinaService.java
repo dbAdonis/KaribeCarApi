@@ -28,11 +28,13 @@ public class OficinaService {
 
     public Oficina update(int id, Oficina oficina) {
         return oficinaRepository.findById(id).map(existing -> {
-            existing.setNombre(oficina.getNombre());
             existing.setProvincia(oficina.getProvincia());
             existing.setCanton(oficina.getCanton());
             existing.setDireccion(oficina.getDireccion());
             existing.setTelefono(oficina.getTelefono());
+            existing.setHorario(oficina.getHorario());
+            existing.setDescripcion(oficina.getDescripcion());
+            existing.setGoogle_maps(oficina.getGoogle_maps());
             return oficinaRepository.save(existing);
         }).orElseThrow(() -> new RuntimeException("Oficina no encontrada con ID: " + id));
     }
