@@ -49,4 +49,10 @@ public class VehiculoController {
     public void delete(@PathVariable int id) {
         vehiculoService.delete(id);
     }
+
+    @GetMapping("/tipo/{idTipoVehiculo}")
+    public List<Vehiculo> getVehiculosPorTipo(@PathVariable int idTipoVehiculo) {
+        return vehiculoService.obtenerVehiculosPorTipo(idTipoVehiculo);
+    }
+
 }
