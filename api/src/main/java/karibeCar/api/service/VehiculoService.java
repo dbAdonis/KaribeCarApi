@@ -59,4 +59,9 @@ public class VehiculoService {
             throw new RuntimeException("Vehículo no encontrado con ID: " + id);
         }
     }
+
+    public List<Vehiculo> obtenerVehiculosPorTipo(int idTipoVehiculo) {
+        return vehiculoRepository.findByIdTipoVehiculoIdTipoVehiculo(idTipoVehiculo);
+    }
+    
 }
