@@ -1,4 +1,4 @@
-package karibeCar.api.controller;
+package karibeCar.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
