@@ -1,5 +1,7 @@
 package karibeCar.api.service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,5 +48,12 @@ public class ReservaService {
 
     public void delete(int id){
         reservaRepository.deleteById(id);
+    }
+
+    public boolean verificarDisponibilidad(int idVehiculo, LocalDateTime startDate, LocalDateTime endDate) {
+        // Verifica si existe alguna reserva con el vehículo en las fechas proporcionadas.
+        return !reservaRepository.existsByIdAlquiler_IdVehiculo_IdVehiculoAndIdAlquiler_FechaInicioLessThanAndIdAlquiler_FechaFinGreaterThan(
+            idVehiculo, endDate, startDate
+        );
     }
 }

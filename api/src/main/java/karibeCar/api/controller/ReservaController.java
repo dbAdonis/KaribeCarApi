@@ -1,6 +1,8 @@
 package karibeCar.api.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import karibeCar.api.dto.VerificarDisponibilidadRequest;
 import karibeCar.api.entity.Reserva;
 import karibeCar.api.service.ReservaService;
 
@@ -47,5 +50,18 @@ public class ReservaController {
     @Operation(summary = "Eliminar una reserva", description = "Elimina una reserva de la base de datos")
     public void delete(@PathVariable int id) {
         reservaService.delete(id);
+    }
+
+    @PostMapping("/verificar-disponibilidad")
+    public Map<String, Boolean> verificarDisponibilidad(@RequestBody VerificarDisponibilidadRequest request) {
+        boolean disponible = reservaService.verificarDisponibilidad(
+            request.getCarId(),
+            request.getStartDate(),
+            request.getEndDate()
+        );
+
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("available", disponible);
+        return response;
     }
 }
