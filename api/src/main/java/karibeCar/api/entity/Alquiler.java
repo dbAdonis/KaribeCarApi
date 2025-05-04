@@ -1,6 +1,6 @@
 package karibeCar.api.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -27,10 +27,10 @@ public class Alquiler {
     private Tarifa idTarifa;
 
     @Column(nullable = false)
-    private LocalDate fechaInicio;
+    private LocalDateTime fechaInicio;
 
     @Column(nullable = false)
-    private LocalDate fechaFin;
+    private LocalDateTime fechaFin;
 
     @Column(nullable = false)
     private int CantidadDias;

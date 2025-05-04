@@ -22,6 +22,9 @@ public class Cliente {
     private String apellido;
 
     @Column(nullable = false)
+    private int edad;
+
+    @Column(nullable = false)
     private String direccion;
 
     @Column(nullable = false, unique = true)

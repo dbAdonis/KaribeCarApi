@@ -18,7 +18,7 @@ public class Reserva {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idReserva;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "idCliente", nullable = false)
     private Cliente idCliente;
 
@@ -27,6 +27,10 @@ public class Reserva {
     private Oficina idOficina;
 
     @ManyToOne
+    @JoinColumn(name = "idOficinaDevolucion", nullable = true)
+    private Oficina idOficinaDevolucion;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "idAlquiler", nullable = false)
     private Alquiler idAlquiler;
 
