@@ -15,10 +15,6 @@
 		</version>
 		<relativePath />
 		<!-- lookup parent from repository -->
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.5</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>
 		karibeCar
@@ -55,7 +51,6 @@
 		<java.version>
 			21
 		</java.version>
-		<java.version>21</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
