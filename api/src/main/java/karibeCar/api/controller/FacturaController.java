@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import karibeCar.api.entity.Factura;
+import karibeCar.api.service.EmailService;
 import karibeCar.api.service.FacturaService;
 
 @CrossOrigin(origins = "*") 
@@ -20,6 +21,9 @@ public class FacturaController {
     @Autowired
     private FacturaService facturaService;
 
+    @Autowired
+    private EmailService emailService;
+
     @GetMapping
     @Operation(summary = "Obtener todas las facturas", description = "Devuelve una lista de facturas")
     public List<Factura> get() {
@@ -29,13 +33,29 @@ public class FacturaController {
     @GetMapping("/{id}")
     @Operation(summary = "Obtener una factura por ID", description = "Busca una factura en la base de datos según su ID")
     public Optional<Factura> getById(@PathVariable int id) {
+        
         return facturaService.getById(id);
     }
 
     @PostMapping
     @Operation(summary = "Registrar una nueva factura", description = "Agrega una nueva factura a la base de datos")
     public Factura add(@RequestBody Factura factura) {
-        return facturaService.save(factura);
+        Factura guardada = facturaService.save(factura);
+
+        if (guardada != null && guardada.getIdCliente() != null) {
+            String correo = guardada.getIdCliente().getCorreo();
+            String nombre = guardada.getIdCliente().getNombre();
+            String apellido = guardada.getIdCliente().getApellido();
+
+            String asunto = "Factura de alquiler generada";
+            String cuerpo = "Hola " + nombre + " " + apellido + ",\n\nTu factura ha sido generada exitosamente.\n\n"
+                    + guardada.getDetalle() + "\n\n"
+                    + "Gracias por usar nuestro servicio.";
+
+            emailService.enviarCorreo(correo, asunto, cuerpo);
+        }
+
+        return guardada;
     }
 
     @PutMapping("/{id}")

@@ -26,7 +26,7 @@ public class Factura {
     @JoinColumn(name = "idAlquiler", nullable = false)
     private Alquiler idAlquiler;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 500)
     private String detalle;
 
     @Column(nullable = false)

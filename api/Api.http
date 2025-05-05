@@ -322,3 +322,21 @@ oxNzQzNTY1NTE5fQ.pS6QeqykmtWkR44WFZN-ors5pFiY01tJLiQfSWhrrls
 ### Obtener todas las categorías (requiere JWT, reemplaza el token)
 GET http://localhost:8080/categories
 Authorization: Bearer jwt-token
+
+###
+### Crear factura
+POST http://localhost:8080/facturas
+Content-Type: application/json
+
+{
+  "idCliente":{
+    "idCliente": 1
+  },
+  "idAlquiler":{
+    "idAlquiler": 1
+  },
+  "detalle": "Prueba",
+  "montoTotal": 90000.0,
+  "metodoPago": "Efectivo",
+  "fecha": "2025-05-04T19:37:21"
+}
