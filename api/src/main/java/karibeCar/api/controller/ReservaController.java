@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import karibeCar.api.dto.VerificarDisponibilidadRequest;
 import karibeCar.api.entity.Reserva;
+import karibeCar.api.service.ReservaCompletaService;
 import karibeCar.api.service.ReservaService;
 
 @CrossOrigin(origins = "*") 
@@ -21,6 +22,9 @@ import karibeCar.api.service.ReservaService;
 public class ReservaController {
     @Autowired
     private ReservaService reservaService;
+
+    @Autowired
+    private ReservaCompletaService reservaCompletaService;
 
     @GetMapping
     @Operation(summary = "Obtener todas las reservas", description = "Devuelve una lista de reservas")
@@ -37,7 +41,7 @@ public class ReservaController {
     @PostMapping
     @Operation(summary = "Registrar una nueva reserva", description = "Agrega una nueva reserva a la base de datos")
     public Reserva add(@RequestBody Reserva reserva) {
-        return reservaService.save(reserva);
+        return reservaCompletaService.crearReservaYFactura(reserva);
     }
 
     @PutMapping("/{id}")

@@ -29,7 +29,7 @@ public class SecurityConfig {
         .cors(Customizer.withDefaults()) // CORS habilitado correctamente
         .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**","/vehiculos/**","/oficinas/**","/reservas/**","/tarifas/**").permitAll()  // acceso libre al login o registro
+                .requestMatchers("/auth/**","/vehiculos/**","/oficinas/**","/reservas/**","/tarifas/**", "/facturas/**").permitAll()  // acceso libre al login o registro
                 .anyRequest().authenticated()            // todo lo demás requiere autenticación
             )
             .sessionManagement(sess -> sess
